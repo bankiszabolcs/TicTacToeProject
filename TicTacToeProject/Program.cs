@@ -16,8 +16,8 @@
         static void restart()
         {
             Console.WriteLine("Press 'R' to restart the game or press any keys to escape from the Game");
-            string exitOrRestert = Console.ReadLine();
-            if (exitOrRestert == "r" || exitOrRestert == "R")
+            string exitOrRestart = Console.ReadLine();
+            if (exitOrRestart == "r" || exitOrRestart == "R")
             {
                 init();
                 run();
@@ -54,7 +54,7 @@
         {
             Console.WriteLine("Type the size of the field (3-10): \n3: 3x3, \n4: 4x4 \n5: 5x5 etc.\n ");
             bool isFieldCorrect = int.TryParse(Console.ReadLine(), out FIELD);
-            isFieldCorrect = FIELD < 10 && FIELD > 2 ? true : false;
+            isFieldCorrect = FIELD < 11 && FIELD > 2 ? true : false;
             Console.WriteLine("How many mark 'X' or '0' have to come in a row to win? \n Min 3 but not greater than the field");
             bool isWinningCondCorrect = int.TryParse(Console.ReadLine(),out WINNING_CONDITION);
             isWinningCondCorrect = WINNING_CONDITION <= FIELD? true : false;
@@ -183,7 +183,7 @@
             }
             else
             {
-                for (int i = 0; i < differentTablesToCheck; i++)
+                for (int i = 0; i <= differentTablesToCheck; i++)
                 {
                     for (int k = 0; k <= differentTablesToCheck; k++)
                     {
@@ -227,10 +227,16 @@
             //Diagonal check 2
             for (int j = 0; j < WINNING_CONDITION; j++)
             {
-                if (board[0, WINNING_CONDITION-1] == board[j, (WINNING_CONDITION-1)-j])
+                /*if (board[0, WINNING_CONDITION-1] == board[j, (WINNING_CONDITION-1)-j])
+                {
+                    counter++;
+                }*/
+                int newStartingColumn = startingColumn + (WINNING_CONDITION-1);
+                if (board[startingRow, newStartingColumn] == board[startingRow+j, newStartingColumn - j])
                 {
                     counter++;
                 }
+                
             }
             //Check if all the symbol in the diagonal is the same
             //If it is not, the counter is set back to 0.
