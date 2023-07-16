@@ -6,6 +6,8 @@
         private static int counter = 0;
         private static int FIELD = 0;
         private static int WINNING_CONDITION = 3;
+        private static bool AGAINST_COMPUTER = false;
+        static string[,] board;
 
         static void Main(string[] args)
         {
@@ -30,9 +32,23 @@
             while (!Checker2(WINNING_CONDITION) && counter < Math.Pow(FIELD,2))
             {
                 Console.Write("Player {0}: Choose your field!", ACTUALPLAYER);
+                if (AGAINST_COMPUTER)
+                {
+                    if(ACTUALPLAYER == 1)
+                    {
+                        string input = Console.ReadLine();
+                        step(input);
+                    }
+                    else
+                    {
+                        step(PCStep());
+                    }
+                }
+                else
+                {
                 string input = Console.ReadLine();
                 step(input);
-
+                }
             }
 
             if (Checker2(WINNING_CONDITION))
@@ -48,17 +64,33 @@
             }
         }
 
-        static string[,] board;
+        
 
         static void init()
         {
-            Console.WriteLine("Type the size of the field (3-10): \n3: 3x3, \n4: 4x4 \n5: 5x5 etc.\n ");
-            bool isFieldCorrect = int.TryParse(Console.ReadLine(), out FIELD);
-            isFieldCorrect = FIELD < 11 && FIELD > 2 ? true : false;
+            char yourCharAscii;
+            char[] rightInputs = { 'Y', 'y', 'N', 'n' };
+            do
+            {
+                Console.WriteLine("Dou you want to play against the Computer? Type 'Y' if yes, type 'N' if not");
+                 yourCharAscii = char.Parse(Console.ReadLine());
+            } while (!rightInputs.Contains(yourCharAscii));
+          
+            if(yourCharAscii == 'y' || yourCharAscii == 'Y')
+            {
+                AGAINST_COMPUTER = true;
+            }
+
+            do
+            {
+                Console.WriteLine("Type the size of the field (3-10): \n3: 3x3, \n4: 4x4 \n5: 5x5 etc.\n ");
+            }
+            while (!(int.TryParse(Console.ReadLine(), out FIELD) && FIELD < 11 && FIELD > 2));
+
             Console.WriteLine("How many mark 'X' or '0' have to come in a row to win? \n Min 3 but not greater than the field");
             bool isWinningCondCorrect = int.TryParse(Console.ReadLine(),out WINNING_CONDITION);
             isWinningCondCorrect = WINNING_CONDITION <= FIELD? true : false;
-            if (isFieldCorrect && isWinningCondCorrect)
+            if (isWinningCondCorrect)
             {
                 createBoard(FIELD);
                 ACTUALPLAYER = 1;
@@ -67,7 +99,7 @@
             }
             else
             {
-                Console.WriteLine("Something went wrong. Try again passing the values.");
+                Console.WriteLine("Something went wrong. Try again passing the value");
                 init();
             }
            
@@ -145,7 +177,7 @@
             }
             else
             {
-                Console.WriteLine("Enter a valid number b/w 0-9 which are not signed yet!");
+                Console.WriteLine("Enter a valid number which are not marked yet!");
             }
         }
 
@@ -171,6 +203,14 @@
             int row = inputNumb/field;
             int column = inputNumb%field;
             return new int[] { row, column };
+        }
+
+        static string PCStep()
+        {
+            Random dice = new Random();
+            int nextStep = dice.Next(0,(FIELD*FIELD-1));
+            return nextStep.ToString();
+
         }
 
         static bool Checker2(int winningCondition) {
