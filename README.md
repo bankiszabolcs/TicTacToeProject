@@ -14,5 +14,5 @@
 - Tetszőlegesen választott pályaméret
 - Tetszőlegesen választott nyerési feltétel (győzelemhez szükséges elemszám)
 - A megjelenítés terminálban/konzolban történik
-- Gép lépései egy véletlenszerűen 'Random' kiválasztott üres mezőre történik
+- Gép lépései egy véletlenszerűen 'Random' kiválasztott üres mezőre történnek
 
