@@ -253,8 +253,6 @@
                 }
             }
 
-            //Check if all the symbol in the diagonal is the same
-            //If it is not, the counter is set back to 0.
             if (counter == WINNING_CONDITION)
             {
                 return true;
@@ -267,10 +265,6 @@
             //Diagonal check 2
             for (int j = 0; j < WINNING_CONDITION; j++)
             {
-                /*if (board[0, WINNING_CONDITION-1] == board[j, (WINNING_CONDITION-1)-j])
-                {
-                    counter++;
-                }*/
                 int newStartingColumn = startingColumn + (WINNING_CONDITION-1);
                 if (board[startingRow, newStartingColumn] == board[startingRow+j, newStartingColumn - j])
                 {
@@ -278,8 +272,7 @@
                 }
                 
             }
-            //Check if all the symbol in the diagonal is the same
-            //If it is not, the counter is set back to 0.
+
             if (counter == WINNING_CONDITION)
             {
                 return true;
@@ -291,8 +284,7 @@
 
             for (int i = startingRow; i < WINNING_CONDITION+startingRow; i++)
             {
-                //int counter = 0;
-                
+
                 //horizontal check
                 for (int k = startingColumn; k < WINNING_CONDITION+startingColumn; k++)
                 {
@@ -302,8 +294,7 @@
                     
                     }
                 }
-                //Check if all the symbol in the row is the same
-                //If it is not, the counter is set back to 0.
+
                 if(counter == WINNING_CONDITION )
                 {
                     return true;
@@ -324,8 +315,7 @@
                         counter++;
                     }
                 }
-                //Check if all the symbol in the column is the same
-                //If it is not, the counter is set back to 0.
+
                 if (counter == WINNING_CONDITION)
                 {
                     return true;
