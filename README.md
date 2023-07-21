@@ -22,7 +22,7 @@ https://github.com/bankiszabolcs/TicTacToeProject
 
 2.  A célgépre le kell klónozni az adott GitHub repository tartalmát.
     Terminálba:
-    `git clone https://github.com/Strukturavaltas-FullstackAPI-2023/fsapi-remek-assignment-bankiszabolcs.git`
+    `git clone [https://github.com/bankiszabolcs/TicTacToeProject](https://github.com/bankiszabolcs/TicTacToeProject.git)`
 
 3. Visual Studioból
    - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
