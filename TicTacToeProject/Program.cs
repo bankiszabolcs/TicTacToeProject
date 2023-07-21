@@ -11,25 +11,25 @@
 
         static void Main(string[] args)
         {
-            init();
-            run();
+            Init();
+            Run();
         }
 
-        static void restart()
+        static void Restart()
         {
             Console.WriteLine("Nyomj egy 'R' hogy újra kezd a játékot.");
             string exitOrRestart = Console.ReadLine();
             if (exitOrRestart == "r" || exitOrRestart == "R")
             {
-                init();
-                run();
+                Init();
+                Run();
             }
 
         }
 
-        static void run()
+        static void Run()
         {
-            while (!Checker2(WINNING_CONDITION) && counter < Math.Pow(FIELD,2))
+            while (!BaseChecker(WINNING_CONDITION) && counter < Math.Pow(FIELD,2))
             {
                 Console.Write("Játékos {0}: Válassz egy mezőt!", ACTUALPLAYER);
                 if (AGAINST_COMPUTER)
@@ -37,36 +37,36 @@
                     if(ACTUALPLAYER == 1)
                     {
                         string input = Console.ReadLine();
-                        step(input);
+                        Step(input);
                     }
                     else
                     {
-                        step(PCStep());
+                        Step(PCStep());
                     }
                 }
                 else
                 {
                 string input = Console.ReadLine();
-                step(input);
+                Step(input);
                 }
             }
 
-            if (Checker2(WINNING_CONDITION))
+            if (BaseChecker(WINNING_CONDITION))
             {
                 Console.WriteLine("Játékos {0} nyert!", ACTUALPLAYER);
-                restart();
+                Restart();
             }
 
             if (counter == Math.Pow(FIELD,2))
             {
                 Console.WriteLine("Döntetlen!");
-                restart();
+                Restart();
             }
         }
 
         
 
-        static void init()
+        static void Init()
         {
             char yourCharAscii;
             bool isCorrectInput;
@@ -101,7 +101,7 @@
             else
             {
                 Console.WriteLine("Hiba az adatok bevitelébe. Próbáld újra.");
-                init();
+                Init();
             }
            
         }
@@ -167,14 +167,14 @@
             drawTable();
         }
 
-        static void step(string input)
+        static void Step(string input)
         {
             bool isInputCorrect = int.TryParse(input, out int inputNumb);
             double maxInput = Math.Pow(FIELD,2);
-            if (isInputCorrect && inputNumb >= 0 && inputNumb < maxInput && checkTheField(getTheCoord(inputNumb, FIELD)))
+            if (isInputCorrect && inputNumb >= 0 && inputNumb < maxInput && CheckTheField(GetTheCoord(inputNumb, FIELD)))
             {
-                modifyOneItem(getTheCoord(inputNumb, FIELD), getTheActualTicTac());
-                if (!Checker2(WINNING_CONDITION)) changePlayer();
+                modifyOneItem(GetTheCoord(inputNumb, FIELD), GetTheActualTicTac());
+                if (!BaseChecker(WINNING_CONDITION)) ChangePlayer();
             }
             else
             {
@@ -183,23 +183,23 @@
         }
 
         //Check if the field is not signed yet
-        static bool checkTheField(int[] coord)
+        static bool CheckTheField(int[] coord)
         {
             string actualField = board[coord[0], coord[1]];
             return (actualField != "X" && actualField != "O") ? true : false;
         }
 
-        static void changePlayer()
+        static void ChangePlayer()
         {
             ACTUALPLAYER = ACTUALPLAYER == 1 ? 2 : 1;
         }
 
-        static string getTheActualTicTac()
+        static string GetTheActualTicTac()
         {
             return ACTUALPLAYER == 1 ? "\x1b[31;40mX\x1b[0m " : "\x1b[32;40mO\x1b[0m ";
         }
 
-        static int[] getTheCoord(int inputNumb, int field)
+        static int[] GetTheCoord(int inputNumb, int field)
         {
             int row = inputNumb/field;
             int column = inputNumb%field;
@@ -213,9 +213,9 @@
             return nextStep.ToString();
 
         }
-
-        static bool Checker2(int winningCondition) {
-
+      
+        static bool BaseChecker(int winningCondition) {
+            
             int differentTablesToCheck = FIELD - winningCondition;
            
             if (differentTablesToCheck == 0)
