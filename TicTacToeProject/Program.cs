@@ -69,12 +69,13 @@
         static void init()
         {
             char yourCharAscii;
+            bool isCorrectInput;
             char[] rightInputs = { 'Y', 'y', 'N', 'n' };
             do
             {
                 Console.WriteLine("Számítógép ellen akarsz játszani? Nyomj egy 'Y'-t ha igen 'N'-t ha nem.");
-                 yourCharAscii = char.Parse(Console.ReadLine());
-            } while (!rightInputs.Contains(yourCharAscii));
+                isCorrectInput = char.TryParse(Console.ReadLine(), out yourCharAscii);
+            } while (!rightInputs.Contains(yourCharAscii) && !isCorrectInput);
           
             if(yourCharAscii == 'y' || yourCharAscii == 'Y')
             {
@@ -177,7 +178,7 @@
             }
             else
             {
-                Console.WriteLine("Enter a valid number which are not marked yet!");
+                Console.WriteLine("Üres mezőt válassz!");
             }
         }
 
@@ -195,7 +196,7 @@
 
         static string getTheActualTicTac()
         {
-            return ACTUALPLAYER == 1 ? "X" : "O";
+            return ACTUALPLAYER == 1 ? "\x1b[31;40mX\x1b[0m " : "\x1b[32;40mO\x1b[0m ";
         }
 
         static int[] getTheCoord(int inputNumb, int field)
