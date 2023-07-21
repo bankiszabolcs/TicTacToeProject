@@ -24,14 +24,9 @@ https://github.com/bankiszabolcs/TicTacToeProject
     Terminálba:
     `git clone https://github.com/Strukturavaltas-FullstackAPI-2023/fsapi-remek-assignment-bankiszabolcs.git`
 
-<details>
-<summary>3. Visual Studioból </summary>
-<br>
-- Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
-    - Nyomd le az F5-öt
-</details>
-<details>
-<summary>3. Windows Intézőből </summary>
-<br>
+3. Visual Studioból
+   - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
+   - Nyomd le az F5-öt
+
+3. Windows Intézőből
     - Projekt gyökerében lépj be a TicTacToeProject > bin > Debug > net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
-</details>
