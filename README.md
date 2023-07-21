@@ -24,9 +24,9 @@ https://github.com/bankiszabolcs/TicTacToeProject
     Terminálba:
     `git clone https://github.com/bankiszabolcs/TicTacToeProject.git`
 
-3a. Visual Studioból
-   - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
-   - Nyomd le az F5-öt
-
-3b. Windows Intézőből
-    - Projekt gyökerében lépj be a TicTacToeProject > bin > Debug > net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
+3.  Futtatás
+   + Visual Studioból
+       - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
+       - Nyomd le az F5-öt
+    + Windows Intézőből
+        - Projekt gyökerében lépj be a TicTacToeProject > bin > Debug > net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
