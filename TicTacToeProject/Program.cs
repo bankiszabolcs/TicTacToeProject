@@ -17,7 +17,7 @@
 
         static void restart()
         {
-            Console.WriteLine("Press 'R' to restart the game or press any keys to escape from the Game");
+            Console.WriteLine("Nyomj egy 'R' hogy újra kezd a játékot.");
             string exitOrRestart = Console.ReadLine();
             if (exitOrRestart == "r" || exitOrRestart == "R")
             {
@@ -31,7 +31,7 @@
         {
             while (!Checker2(WINNING_CONDITION) && counter < Math.Pow(FIELD,2))
             {
-                Console.Write("Player {0}: Choose your field!", ACTUALPLAYER);
+                Console.Write("Játékos {0}: Válassz egy mezőt!", ACTUALPLAYER);
                 if (AGAINST_COMPUTER)
                 {
                     if(ACTUALPLAYER == 1)
@@ -53,13 +53,13 @@
 
             if (Checker2(WINNING_CONDITION))
             {
-                Console.WriteLine("Player {0} won!", ACTUALPLAYER);
+                Console.WriteLine("Játékos {0} nyert!", ACTUALPLAYER);
                 restart();
             }
 
             if (counter == Math.Pow(FIELD,2))
             {
-                Console.WriteLine("Nobody won.");
+                Console.WriteLine("Döntetlen!");
                 restart();
             }
         }
@@ -72,7 +72,7 @@
             char[] rightInputs = { 'Y', 'y', 'N', 'n' };
             do
             {
-                Console.WriteLine("Dou you want to play against the Computer? Type 'Y' if yes, type 'N' if not");
+                Console.WriteLine("Számítógép ellen akarsz játszani? Nyomj egy 'Y'-t ha igen 'N'-t ha nem.");
                  yourCharAscii = char.Parse(Console.ReadLine());
             } while (!rightInputs.Contains(yourCharAscii));
           
@@ -83,11 +83,11 @@
 
             do
             {
-                Console.WriteLine("Type the size of the field (3-10): \n3: 3x3, \n4: 4x4 \n5: 5x5 etc.\n ");
+                Console.WriteLine("Hányszor-hányas mezőbe játszanál? (3-10): \n3: 3x3, \n4: 4x4 \n5: 5x5 etc.\n ");
             }
             while (!(int.TryParse(Console.ReadLine(), out FIELD) && FIELD < 11 && FIELD > 2));
 
-            Console.WriteLine("How many mark 'X' or '0' have to come in a row to win? \n Min 3 but not greater than the field");
+            Console.WriteLine("Mennyi jel kelljen a győzelemhez? \n Minimum 3 de nem nagyobb mint az aktuális mező méret.");
             bool isWinningCondCorrect = int.TryParse(Console.ReadLine(),out WINNING_CONDITION);
             isWinningCondCorrect = WINNING_CONDITION <= FIELD? true : false;
             if (isWinningCondCorrect)
@@ -99,7 +99,7 @@
             }
             else
             {
-                Console.WriteLine("Something went wrong. Try again passing the value");
+                Console.WriteLine("Hiba az adatok bevitelébe. Próbáld újra.");
                 init();
             }
            
