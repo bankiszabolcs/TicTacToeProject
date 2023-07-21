@@ -28,10 +28,10 @@ https://github.com/bankiszabolcs/TicTacToeProject
 <summary>3. Visual Studioból </summary>
 <br>
 - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
-- Nyomd le az F5-öt
+    - Nyomd le az F5-öt
 </details>
 <details>
 <summary>3. Windows Intézőből </summary>
 <br>
-Projekt gyökerében lépj be a TicTacToeProject>bin>Debug>net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
+    - Projekt gyökerében lépj be a TicTacToeProject > bin > Debug > net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
 </details>
