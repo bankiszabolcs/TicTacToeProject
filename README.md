@@ -22,11 +22,11 @@ https://github.com/bankiszabolcs/TicTacToeProject
 
 2.  A célgépre le kell klónozni az adott GitHub repository tartalmát.
     Terminálba:
-    `git clone [https://github.com/bankiszabolcs/TicTacToeProject](https://github.com/bankiszabolcs/TicTacToeProject.git)`
+    `git clone https://github.com/bankiszabolcs/TicTacToeProject.git`
 
-3. Visual Studioból
+3a Visual Studioból
    - Projekt gyökerében nyitsd meg a TicTacToeProject.sln fájlt
    - Nyomd le az F5-öt
 
-3. Windows Intézőből
+3b Windows Intézőből
     - Projekt gyökerében lépj be a TicTacToeProject > bin > Debug > net6.0 mappába és indítsd el a TicTacToeProject.exe fájlt.
