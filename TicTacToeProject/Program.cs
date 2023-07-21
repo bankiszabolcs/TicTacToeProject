@@ -93,10 +93,10 @@
             isWinningCondCorrect = WINNING_CONDITION <= FIELD? true : false;
             if (isWinningCondCorrect)
             {
-                createBoard(FIELD);
+                CreateBoard(FIELD);
                 ACTUALPLAYER = 1;
                 counter = 0;
-                drawTable();
+                DrawTable();
             }
             else
             {
@@ -106,15 +106,7 @@
            
         }
 
-        /// <summary>
-        /// Function to create the field. You can pass the value how deep field do you want.
-        /// </summary>
-        /// <remarks>
-        /// e.g. numb = 3. It means the board sets to 3x3.
-        /// </remarks>
-        /// <param name="numb">
-        /// </param>
-        static void createBoard(int numb)
+        static void CreateBoard(int numb)
         {
             board = new string[numb, numb];
 
@@ -131,7 +123,7 @@
             }
         }
 
-        static void drawTable()
+        static void DrawTable()
         {
             for (int i = 0; i < board.GetLength(0); i++)
             {
@@ -145,11 +137,11 @@
                         Console.Write(" "+board[i, k] + " |  ");
                     }
                 }
-                Console.WriteLine("\n"+drawRow(FIELD));
+                Console.WriteLine("\n"+DrawRow(FIELD));
             }
         }
 
-        static string drawRow(int numberOfRow) {
+        static string DrawRow(int numberOfRow) {
             string line="";
             for (int i = 0; i < numberOfRow; i++)
             {
@@ -159,12 +151,12 @@
             return line;
         }
 
-        static void modifyOneItem(int[] coord, string value)
+        static void ModifyOneItem(int[] coord, string value)
         {
             board[coord[0], coord[1]] = value;
             Console.Clear();
             counter++;
-            drawTable();
+            DrawTable();
         }
 
         static void Step(string input)
@@ -173,7 +165,7 @@
             double maxInput = Math.Pow(FIELD,2);
             if (isInputCorrect && inputNumb >= 0 && inputNumb < maxInput && CheckTheField(GetTheCoord(inputNumb, FIELD)))
             {
-                modifyOneItem(GetTheCoord(inputNumb, FIELD), GetTheActualTicTac());
+                ModifyOneItem(GetTheCoord(inputNumb, FIELD), GetTheActualTicTac());
                 if (!BaseChecker(WINNING_CONDITION)) ChangePlayer();
             }
             else
@@ -182,7 +174,6 @@
             }
         }
 
-        //Check if the field is not signed yet
         static bool CheckTheField(int[] coord)
         {
             string actualField = board[coord[0], coord[1]];
@@ -213,7 +204,7 @@
             return nextStep.ToString();
 
         }
-      
+
         static bool BaseChecker(int winningCondition) {
             
             int differentTablesToCheck = FIELD - winningCondition;
